@@ -61,6 +61,7 @@ def game():
                 for event in pygame.event.get():
                     if event.type == pygame.KEYDOWN:
                         if event.key == pygame.K_q:
+                            menu.menu()
                             sair_jogo = True
                             gameOver = False
                         if event.key == pygame.K_c:
