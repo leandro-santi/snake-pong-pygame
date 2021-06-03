@@ -115,8 +115,17 @@ def game():
                         change_side_x = 0
                         movement = True
 
+            # Snake atravessando as paredes
             if side_x >= constants.WIDTH or side_x < 0 or side_y >= constants.HEIGHT or side_y < 0:
-                game_over = True
+                # game_over = True
+                if side_x > constants.WIDTH:
+                    side_x = 0
+                elif side_x < 0:
+                    side_x = constants.WIDTH
+                elif side_y > constants.HEIGHT:
+                    side_y = 0
+                elif side_y < 0:
+                    side_y = constants.HEIGHT
 
             side_x += change_side_x
             side_y += change_side_y
