@@ -12,7 +12,8 @@ pygame.display.set_caption('Snake+=Pong')
 random_x = 0
 random_y = 0
 score = 0
-ball_speed = 2
+ball_speed = 0
+movement = False
 
 
 def game():
@@ -34,11 +35,13 @@ def game():
         global random_y
         global score
         global ball_speed
+        global movement
 
         ball.ball_x = 300
         ball.ball_y = 300
 
         ball_speed = 2
+        movement = False
 
         # desempenho de colisao
         side_x = constants.WIDTH / 2
@@ -89,24 +92,28 @@ def game():
                             size_snake += 15
                             game_start = False
                         change_side_y = 0
+                        movement = True
                     elif event.key == pygame.K_RIGHT:
                         change_side_x = constants.block_size
                         if game_start:
                             size_snake += 15
                             game_start = False
                         change_side_y = 0
+                        movement = True
                     elif event.key == pygame.K_UP:
                         change_side_y = -constants.block_size
                         if game_start:
                             size_snake += 15
                             game_start = False
                         change_side_x = 0
+                        movement = True
                     elif event.key == pygame.K_DOWN:
                         change_side_y = constants.block_size
                         if game_start:
                             size_snake += 15
                             game_start = False
                         change_side_x = 0
+                        movement = True
 
             if side_x >= constants.WIDTH or side_x < 0 or side_y >= constants.HEIGHT or side_y < 0:
                 game_over = True
@@ -145,16 +152,20 @@ def game():
             # game_screen.blit(ball.ball, (ball.ball_x, ball.ball_y))
             # pygame.display.flip()
 
-            # colisão da bolinha
-            #if ball.ball_x >= constants.WIDTH or ball.ball_x < 0 or ball.ball_y >= constants.HEIGHT or ball.ball_y < 0:
-             #   game_over = True
-
+            #  colisão da bolinha
+            if ball.ball_x >= constants.WIDTH or ball.ball_x < 0 or ball.ball_y >= constants.HEIGHT or ball.ball_y < 0:
+                game_over = True
+            # print(array_snake[0][0] == ball.ball_x)
+            # print(array_snake[0][1] == ball.ball_y)
             # colisão da bolinha com a cobra
             for rub in array_snake[:-1]:
-                if rub[0] == ball.ball_x and rub[1] == ball.ball_y:
-                    aux = random.randint(0, 1)
+                if ball.ball_x - 10 <= rub[0] <= ball.ball_x + 10 and ball.ball_y - 10 <= rub[1] <= ball.ball_y + 10 and movement == True:
+                    print(rub[0], ball.ball_x)
+                    print(rub[1], ball.ball_y)
+                    # aux = random.randint(0, 1)
                     # print(constants.ang[aux])
                     # print(ball_speed)
+                    movement = False
                     ball.ball_dx *= -1
                     ball.ball_dy *= -1
 
@@ -168,7 +179,7 @@ def game():
                 if size_snake > 3:
                     size_snake -= 1
                     del array_snake[0]
-                    print(len(array_snake))
+                    # print(len(array_snake))
 
             clock.tick(constants.block_time)
 

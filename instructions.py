@@ -4,7 +4,7 @@ import constants
 import menu
 
 size = (constants.WIDTH, constants.HEIGHT)
-screen = pygame.display.set_mode(size)
+help_screen = pygame.display.set_mode(size)
 
 
 def game_help():
@@ -56,11 +56,11 @@ def game_help():
                 exit_help_text_rect = exit_help_text.get_rect()
                 exit_help_text_rect.center = (300, 550)
 
-                screen.fill(constants.BLACK)
-                screen.blit(help1_text, help1_text_rect)
-                screen.blit(help2_text, help2_text_rect)
-                screen.blit(help3_text, help3_text_rect)
-                screen.blit(help4_text, help4_text_rect)
-                screen.blit(help5_text, help5_text_rect)
-                screen.blit(exit_help_text, exit_help_text_rect)
+                help_screen.fill(constants.BLACK)
+                help_screen.blit(help1_text, help1_text_rect)
+                help_screen.blit(help2_text, help2_text_rect)
+                help_screen.blit(help3_text, help3_text_rect)
+                help_screen.blit(help4_text, help4_text_rect)
+                help_screen.blit(help5_text, help5_text_rect)
+                help_screen.blit(exit_help_text, exit_help_text_rect)
                 pygame.display.flip()

@@ -5,7 +5,7 @@ import game
 import instructions
 
 size = (constants.WIDTH, constants.HEIGHT)
-screen = pygame.display.set_mode(size)
+menu_screen = pygame.display.set_mode(size)
 
 
 def main_menu():
@@ -56,11 +56,11 @@ def menu():
                 credits_text_rect.center = (300, 550)
                 credits2_text_rect.center = (300, 570)
 
-                screen.fill(constants.BLACK)
-                screen.blit(t_text, t_text_rect)
-                screen.blit(start_text, start_text_rect)
-                screen.blit(instruction_text, instruction_text_rect)
-                screen.blit(exit_text, exit_text_rect)
-                screen.blit(credits_text, credits_text_rect)
-                screen.blit(credits2_text, credits2_text_rect)
+                menu_screen.fill(constants.BLACK)
+                menu_screen.blit(t_text, t_text_rect)
+                menu_screen.blit(start_text, start_text_rect)
+                menu_screen.blit(instruction_text, instruction_text_rect)
+                menu_screen.blit(exit_text, exit_text_rect)
+                menu_screen.blit(credits_text, credits_text_rect)
+                menu_screen.blit(credits2_text, credits2_text_rect)
                 pygame.display.flip()
