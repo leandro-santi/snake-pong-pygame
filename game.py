@@ -37,6 +37,11 @@ def game():
         global ball_speed
         global movement
 
+        up = 0
+        down = 0
+        right = 0
+        left = 0
+
         ball.ball_x = 300
         ball.ball_y = 300
 
@@ -89,31 +94,47 @@ def game():
                     if event.key == pygame.K_LEFT:
                         change_side_x = -constants.block_size
                         if game_start:
-                            size_snake += 15
+                            size_snake += 20
                             game_start = False
                         change_side_y = 0
                         movement = True
+                        up = 0
+                        down = 0
+                        right = 0
+                        left = 1
                     elif event.key == pygame.K_RIGHT:
                         change_side_x = constants.block_size
                         if game_start:
-                            size_snake += 15
+                            size_snake += 20
                             game_start = False
                         change_side_y = 0
                         movement = True
+                        up = 0
+                        down = 0
+                        right = 1
+                        left = 0
                     elif event.key == pygame.K_UP:
                         change_side_y = -constants.block_size
                         if game_start:
-                            size_snake += 15
+                            size_snake += 20
                             game_start = False
                         change_side_x = 0
                         movement = True
+                        up = 1
+                        down = 0
+                        right = 0
+                        left = 0
                     elif event.key == pygame.K_DOWN:
                         change_side_y = constants.block_size
                         if game_start:
-                            size_snake += 15
+                            size_snake += 20
                             game_start = False
                         change_side_x = 0
                         movement = True
+                        up = 0
+                        down = 1
+                        right = 0
+                        left = 0
 
             # Snake atravessando as paredes
             if side_x >= constants.WIDTH or side_x < 0 or side_y >= constants.HEIGHT or side_y < 0:
@@ -168,15 +189,29 @@ def game():
             # print(array_snake[0][1] == ball.ball_y)
             # colisão da bolinha com a cobra
             for rub in array_snake[:-1]:
-                if ball.ball_x - 10 <= rub[0] <= ball.ball_x + 10 and ball.ball_y - 10 <= rub[1] <= ball.ball_y + 10 and movement == True:
-                    print(rub[0], ball.ball_x)
-                    print(rub[1], ball.ball_y)
+                if ball.ball_x - 10 <= rub[0] <= ball.ball_x + 10 and\
+                        ball.ball_y - 10 <= rub[1] <= ball.ball_y + 10 and movement:
                     # aux = random.randint(0, 1)
+                    if left == 1:
+                        ball.ball_dx = abs(ball.ball_dx) * -1
+                        ball.ball_dy *= -1
+                    elif right == 1:
+                        ball.ball_dx = abs(ball.ball_dx) * 1
+                        ball.ball_dy *= -1
+                    elif up == 1:
+                        ball.ball_dx *= -1
+                        ball.ball_dy = abs(ball.ball_dy) * -1
+                    elif down == 1:
+                        ball.ball_dx *= -1
+                        ball.ball_dy = abs(ball.ball_dy) * 1
+                    # print(rub[0], ball.ball_x)
+                    # print(rub[1], ball.ball_y)
+
                     # print(constants.ang[aux])
                     # print(ball_speed)
                     movement = False
-                    ball.ball_dx *= -1
-                    ball.ball_dy *= -1
+                    # ball.ball_dx *= constants.ang[aux]
+                    # ball.ball_dy *= -1
 
             # atualiza o display
             pygame.display.update()

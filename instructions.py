@@ -27,17 +27,17 @@ def game_help():
                 help1_text_rect = help1_text.get_rect()
                 help1_text_rect.center = (300, 100)
 
-                help2_text = help2_font.render('Eat apples without leave the ball hit the walls.', True,
+                help2_text = help2_font.render('Eat apples without leave the snake´s egg hit the walls.', True,
                                                constants.WHITE, constants.BLACK)
                 help2_text_rect = help2_text.get_rect()
                 help2_text_rect.center = (300, 150)
 
-                help3_text = help2_font.render('Beat on the ball to change its direction.', True,
+                help3_text = help2_font.render('Beat on the snake´s egg to change its direction.', True,
                                                constants.WHITE, constants.BLACK)
                 help3_text_rect = help3_text.get_rect()
                 help3_text_rect.center = (300, 200)
 
-                help4_text = help_font.render('Keys:', True, constants.WHITE, constants.BLACK)
+                help4_text = help_font.render('Mechanics:', True, constants.WHITE, constants.BLACK)
                 help4_text_rect = help4_text.get_rect()
                 help4_text_rect.center = (300, 300)
 
@@ -46,10 +46,15 @@ def game_help():
                 help5_text_rect = help5_text.get_rect()
                 help5_text_rect.center = (300, 350)
 
-                # help6_text = help2_font.render('Beat on the ball to change its direction.', True,
-                # constants.WHITE, constants.BLACK)
-                # help6_text_rect = help3_text.get_rect()
-                # help6_text_rect.center = (300, 200)
+                help6_text = help2_font.render('Eat apples will make the snake decrease.', True,
+                                               constants.WHITE, constants.BLACK)
+                help6_text_rect = help6_text.get_rect()
+                help6_text_rect.center = (300, 400)
+
+                help7_text = help2_font.render('SAVE THE SNAKE´S BABY!', True,
+                                               constants.WHITE, constants.BLACK)
+                help7_text_rect = help7_text.get_rect()
+                help7_text_rect.center = (300, 450)
 
                 exit_help_text = help2_font.render('Press "i" to back to menu.', True,
                                                    constants.WHITE, constants.BLACK)
@@ -62,5 +67,7 @@ def game_help():
                 help_screen.blit(help3_text, help3_text_rect)
                 help_screen.blit(help4_text, help4_text_rect)
                 help_screen.blit(help5_text, help5_text_rect)
+                help_screen.blit(help6_text, help6_text_rect)
+                help_screen.blit(help7_text, help7_text_rect)
                 help_screen.blit(exit_help_text, exit_help_text_rect)
                 pygame.display.flip()
