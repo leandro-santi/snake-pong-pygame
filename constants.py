@@ -12,3 +12,10 @@ WIDTH = 600
 HEIGHT = 600
 
 font = pygame.font.Font("assets/fonts/PressStart2P.ttf", 16)
+
+# block constants
+block_size = 10
+block_time = 20
+
+# random angle
+ang = [1, -1]
