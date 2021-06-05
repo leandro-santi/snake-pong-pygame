@@ -23,45 +23,43 @@ def game_help():
                 help2_font = pygame.font.Font('assets/fonts/PressStart2P.ttf', 10)
 
                 help1_text = help_font.render('Objective:', True,
-                                              constants.WHITE, constants.BLACK)
+                                              constants.BLACK)
                 help1_text_rect = help1_text.get_rect()
                 help1_text_rect.center = (300, 100)
 
                 help2_text = help2_font.render('Eat apples without leave the snake´s egg hit the walls.', True,
-                                               constants.WHITE, constants.BLACK)
+                                               constants.BLACK)
                 help2_text_rect = help2_text.get_rect()
                 help2_text_rect.center = (300, 150)
 
                 help3_text = help2_font.render('Beat on the snake´s egg to change its direction.', True,
-                                               constants.WHITE, constants.BLACK)
+                                               constants.BLACK)
                 help3_text_rect = help3_text.get_rect()
                 help3_text_rect.center = (300, 200)
 
-                help4_text = help_font.render('Mechanics:', True, constants.WHITE, constants.BLACK)
+                help4_text = help_font.render('Mechanics:', True, constants.BLACK)
                 help4_text_rect = help4_text.get_rect()
                 help4_text_rect.center = (300, 300)
 
-                help5_text = help2_font.render('UP, DOWN, LEFT, RIGHT to move the snake.', True, constants.WHITE,
-                                               constants.BLACK)
+                help5_text = help2_font.render('UP, DOWN, LEFT, RIGHT to move the snake.', True, constants.BLACK)
                 help5_text_rect = help5_text.get_rect()
                 help5_text_rect.center = (300, 350)
 
-                help6_text = help2_font.render('Eat apples will make the snake decrease.', True,
-                                               constants.WHITE, constants.BLACK)
+                help6_text = help2_font.render('Eat apples will make the snake decrease.', True, constants.BLACK)
                 help6_text_rect = help6_text.get_rect()
                 help6_text_rect.center = (300, 400)
 
-                help7_text = help2_font.render('SAVE THE SNAKE´S BABY!', True,
-                                               constants.WHITE, constants.BLACK)
+                help7_text = help2_font.render('SAVE THE SNAKE´S BABY!', True, constants.BLACK)
                 help7_text_rect = help7_text.get_rect()
                 help7_text_rect.center = (300, 450)
 
-                exit_help_text = help2_font.render('Press "i" to back to menu.', True,
-                                                   constants.WHITE, constants.BLACK)
+                exit_help_text = help2_font.render('Press "i" to back to menu.', True, constants.BLACK)
                 exit_help_text_rect = exit_help_text.get_rect()
                 exit_help_text_rect.center = (300, 550)
 
-                help_screen.fill(constants.BLACK)
+                # help_screen.fill(constants.BG_COLOR)
+                background = pygame.image.load("assets/images/sand_ground.png")
+                help_screen.blit(background, (0, 0))
                 help_screen.blit(help1_text, help1_text_rect)
                 help_screen.blit(help2_text, help2_text_rect)
                 help_screen.blit(help3_text, help3_text_rect)
